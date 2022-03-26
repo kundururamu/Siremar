@@ -1,16 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+/* Group Member details:
+ Kunduru Ramu(1001951957)
+ Lokesh Vadla Achari(1001951537)
+ Vamseedhar Reddy Thandra(1001968085)  */
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
+@layer components {
+  .linkButtons {
+    @apply bg-backgroundDark px-7 py-3 rounded-md hover:opacity-90;
+  }
+
+  .navbtn {
+    @apply hover:underline;
+  }
 }
