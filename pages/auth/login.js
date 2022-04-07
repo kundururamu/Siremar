@@ -10,6 +10,7 @@ import { setAuth } from "../../redux/slices/authSlice";
 import Router from "next/router";
 import DialogBox from "../../components/shared/dialogbox";
 import DropDownComponenet from "../../components/shared/dropdownComponent";
+//import axios from axios;
 
 const Login = () => {
   const Roles = [
@@ -30,14 +31,17 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   const emailValidation = (value) => {
     const regex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return !(regex.test(value) === false);
   };
-
+ 
   const onSignInHandler = (e) => {
     e.preventDefault();
+    console.log(e.value)
     if (email === "" || !emailValidation(email)) {
       setError(!isError);
       setErrMessage("Email is not valid.");
@@ -50,30 +54,50 @@ const Login = () => {
     }
     dispatch(setAuth());
     if (userType === "Admin") {
+
       Router.push("/adminDashboard");
     } else {
       Router.push(`/${userType.toLowerCase()}Home`);
     }
   };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+
+    axios.post("http://localhost:8012/siremar/login.php", {
+      email:email,
+      password:password,
+      userrole:userrole 
+    }).then(res => {
+      console.log(res);
+      if(res.data.message === 'success') {
+        alert('Success');
+      } else {
+        alert('Failed');
+      }
+    })
+
+
+  }
 
   return (
     <div>
       <div className="bg-backgroundDark w-full px-20  text-white text-center h-[50px] items-center flex justify-center flex-col space-y-5"></div>
       <div className="flex justify-center mt-28">
         <div className="w-full max-w-xs">
-          <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit= {handelSubmit} >
             <div className="flex mb-2">
               <h1 className="font-bold text-backgroundDark text-2xl  mx-auto">
                 Sign in
               </h1>
             </div>
-            {/* <p className="text-center text-sm my-2">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p> */}
-
             <div>
               <InputField
                 id="email"
+                value="email"
+                className="form-control"
+                name="email_name"
                 placeholder="Email"
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -81,7 +105,10 @@ const Login = () => {
               />
               <InputField
                 id="password"
+                name="password"
                 placeholder="Password"
+                className="form-control"
+
                 type="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -94,7 +121,7 @@ const Login = () => {
 
             <div className="flex justify-center mt-4">
               <button
-                onClick={onSignInHandler}
+                onClick={handelSubmit} type="submit"
                 className="bg-backgroundDark  text-textColor font-bold py-2 px-4 rounded mb-3 hover:bg-gray-900 text-center "
               >
                 Submit

@@ -35,8 +35,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDob] = useState("");
-  const [fullname, setFullname] = useState("");
-
+  const [fname, setFirstname] = useState("");
+  const [lname, setLastname] = useState("");
+  const [gender, setGender] = useState(""); 
+  const [phone , setPhone] = useState("");
   const emailValidation = (value) => {
     const regex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -45,9 +47,14 @@ const Register = () => {
 
   const onSignUpHandler = (e) => {
     e.preventDefault();
-    if (fullname === "") {
+    if (fname === "") {
       setError(!isError);
-      setErrMessage(`Fullname shouldn't be empty.`);
+      setErrMessage(`Firstname shouldn't be empty.`);
+      return;
+    }
+    if (lname === "") {
+      setError(!isError);
+      setErrMessage(`Lastname shouldn't be empty.`);
       return;
     }
     if (dob === "") {
@@ -55,10 +62,19 @@ const Register = () => {
       setErrMessage(`DOB shouldn't be empty.`);
       return;
     }
-
+    if (gender === "") {
+      setError(!isError);
+      setErrMessage(`Gender shouldn't be empty.`);
+      return;
+    }
     if (address === "") {
       setError(!isError);
       setErrMessage(`Address shouldn't be empty.`);
+      return;
+    }
+    if (phone === "") {
+      setError(!isError);
+      setErrMessage(`phone number shouldn't be empty.`);
       return;
     }
     if (email === "" || !emailValidation(email)) {
@@ -96,10 +112,18 @@ const Register = () => {
             </div>
             <div>
               <InputField
-                id="name"
-                placeholder="Name"
+                id="fname"
+                placeholder="First Name"
                 onChange={(e) => {
-                  setFullname(e.target.value);
+                  setFirstname(e.target.value);
+                }}
+                isError={isError}
+              />
+               <InputField
+                id="lname"
+                placeholder="Last Name"
+                onChange={(e) => {
+                  setLastname(e.target.value);
                 }}
                 isError={isError}
               />
@@ -113,7 +137,24 @@ const Register = () => {
                   placeholderText="Date of birth"
                   className="outline-none"
                 />
+                 
               </div>
+              <InputField
+                id="gender"
+                placeholder="Gender"
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+                isError={isError}
+              />
+             <InputField
+                id="phone"
+                placeholder="Phone no"
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
+                isError={isError}
+              /> 
               <InputField
                 id="address"
                 placeholder="Address"
