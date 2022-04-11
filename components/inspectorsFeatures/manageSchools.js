@@ -5,6 +5,7 @@
 import React, { useState } from "react";
 import SchoolRegistration from "../registration/schools";
 import CheckSchools from "../residentFeatures/checkSchools";
+import AddSchool from "../registration/addSchools";
 
 const style = {
   tabs: `hover:underline border-2 px-8 py-2 rounded-lg`,
@@ -13,8 +14,8 @@ const style = {
 const ManageSchools = () => {
   const [task, setTask] = useState("view");
   const tasks = {
-    add: SchoolRegistration,
-    view: CheckSchools,
+    add: AddSchool,
+    view: CheckSchools
   };
 
   const Task = tasks[task];

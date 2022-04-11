@@ -55,6 +55,14 @@ const AdminDashboard = () => {
         Router.push("/inspectorHome");
       },
     },
+    {
+      name: "Queries",
+      icon: AdjustmentsIcon,
+      onClick: (e) => {
+        e.preventDefault();
+        Router.push("/queries");
+      },
+    },
   ];
   return (
     <div>
@@ -76,14 +84,30 @@ const AdminDashboard = () => {
         <div className="w-full mr-6 mt-4">
           {/* Parameter boxes */}
           <div className="flex justify-around">
-            {buttons.map((btn, index) => {
+            {/* {buttons.map((btn, index) => {
               return (
                 <div className="px-12 py-4 border-2 w-full m-2 rounded-md shadow-sm hover:opacity-50 cursor-pointer">
                   <h1>Parameters</h1>
                   <p>{Math.random()}</p>
                 </div>
               );
-            })}
+            })} */}
+            <div className="px-12 py-4 border-2 w-full m-2 rounded-md shadow-sm hover:opacity-50 cursor-pointer">
+              <h1>Number of Residents</h1>
+              <p>10</p>
+            </div>
+            <div className="px-12 py-4 border-2 w-full m-2 rounded-md shadow-sm hover:opacity-50 cursor-pointer">
+              <h1>Number of Businesses</h1>
+              <p>4</p>
+            </div>
+            <div className="px-12 py-4 border-2 w-full m-2 rounded-md shadow-sm hover:opacity-50 cursor-pointer">
+              <h1>Number of Clincs</h1>
+              <p>3</p>
+            </div>
+            <div className="px-12 py-4 border-2 w-full m-2 rounded-md shadow-sm hover:opacity-50 cursor-pointer">
+              <h1>Number of Schools</h1>
+              <p>5</p>
+            </div>
           </div>
 
           {/* Chart */}

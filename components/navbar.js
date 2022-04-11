@@ -39,6 +39,11 @@ function Navbar() {
               <a className="navbtn">Contact</a>
             </Link>
           </li>
+          <li className={`${isAuth ? "hidden" : ""}`}>
+            <Link href="http://rxk1957.uta.cloud/blog/">
+              <a className="navbtn">Blog</a>
+            </Link>
+          </li>
           <li>
             {isAuth ? (
               <Link

@@ -2,18 +2,21 @@
  Kunduru Ramu(1001951957)
  Lokesh Vadla Achari(1001951537)
  Vamseedhar Reddy Thandra(1001968085)  */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
-import { setUserType } from "../../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
 
-function DropDownComponenet({ Items }) {
-  const [selectedItem, setSelectedItem] = useState("Resident");
+function DropDownComponenet({ Items, sendSelectedToParent, placeHolder }) {
+  // const [selectedItem, setSelectedItem] = useState("Resident");
+  const [selectedItem, setSelectedItem] = useState("");
   const [dropDown, setDropdown] = useState(false);
-  const dispatch = useDispatch();
   const toggleDropDown = () => {
     setDropdown(!dropDown);
   };
+
+  useEffect(() => {
+    sendSelectedToParent && sendSelectedToParent(selectedItem);
+  }, [selectedItem]);
+
   return (
     <div>
       <div
@@ -23,7 +26,11 @@ function DropDownComponenet({ Items }) {
         }}
       >
         <h1 className="text-sm text-gray-700">
-          {!selectedItem ? "Select your choice" : selectedItem}
+          {!selectedItem
+            ? placeHolder
+              ? placeHolder
+              : "Select your choice"
+            : selectedItem}
         </h1>
         {!dropDown ? (
           <ChevronDownIcon className="h-6" />
@@ -41,7 +48,6 @@ function DropDownComponenet({ Items }) {
                 onClick={() => {
                   setSelectedItem(item.name);
                   setDropdown(false);
-                  dispatch(setUserType(item.name));
                 }}
               >
                 <h1>{item.name}</h1>

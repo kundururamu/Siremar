@@ -10,7 +10,7 @@ const style = {
   tabs: `hover:underline border-2 px-8 py-2 rounded-lg`,
 };
 
-const ManageSchools = () => {
+const ManageClinics = () => {
   const [task, setTask] = useState("view");
   const tasks = {
     add: ClinicRegistration,
@@ -45,4 +45,4 @@ const ManageSchools = () => {
   );
 };
 
-export default ManageSchools;
+export default ManageClinics;

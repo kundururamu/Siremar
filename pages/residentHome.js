@@ -14,6 +14,8 @@ import CheckEvents from "../components/residentFeatures/checkEvents";
 const ResidentHome = () => {
   const isAuth = useSelector((state) => state.auth.isAuth);
   const userType = useSelector((state) => state.auth.userType);
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
   const steps = {
     CD: Discounts,
     CB: CheckBusiness,
@@ -24,12 +26,17 @@ const ResidentHome = () => {
   const Step = steps[step];
   useEffect(() => {
     !isAuth ? Router.push("/auth/login") : "";
+    if(isAuth) {
+      setFirstName(localStorage.getItem("firstName"))
+      setLastName(localStorage.getItem("lastName"))
+    }
   }, []);
   return (
     <div>
       <div className="bg-backgroundDark w-full px-20  text-white text-center h-48 items-center flex justify-center flex-col space-y-2">
         <h1 className=" text-4xl mt-16 ">
-          Hello {userType === "Admin" ? "Admin" : "Resident"}
+          Hello {userType === "Admin" ? "Admin" : firstName !== "" && lastName !== "" &&`${firstName[0].toUpperCase() + firstName.slice(1)} ${lastName[0].toUpperCase() + lastName.slice(1)}`}
+          
         </h1>
         <p>Below are the services that you can perform</p>
       </div>

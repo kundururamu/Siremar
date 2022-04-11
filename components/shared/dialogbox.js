@@ -5,7 +5,7 @@
 import React from "react";
 import { XCircleIcon } from "@heroicons/react/solid";
 
-const DialogBox = ({ onClick, emessage }) => {
+const DialogBox = ({ onClick, emessage, customMessage }) => {
   return (
     <div>
       <div className="absolute bg-black opacity-70 top-0 right-0 left-0 bottom-0"></div>
@@ -16,7 +16,7 @@ const DialogBox = ({ onClick, emessage }) => {
             onClick={onClick}
           />
           <h1 className="text-red text-sm font-bold text-red-500 mt-4 ">
-            Error message
+            {customMessage ? customMessage : "Error message" }
           </h1>
           <h1 className=" mb-4 text-md ">{emessage}</h1>
           <button

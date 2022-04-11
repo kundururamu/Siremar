@@ -2,7 +2,6 @@
  Kunduru Ramu(1001951957)
  Lokesh Vadla Achari(1001951537)
  Vamseedhar Reddy Thandra(1001968085)  */
-import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -38,10 +37,10 @@ function createData(id, flights, date, destination, time) {
 
 const rows = [
   createData(1, "FL 305", "02-04 -22", "Dallas", "2:00PM"),
-  createData(2, "FL 305", "02-04 -22", "Dallas", "2:00PM"),
-  createData(3, "FL 305", "02-04 -22", "Dallas", "2:00PM"),
-  createData(4, "FL 305", "02-04 -22", "Dallas", "2:00PM"),
-  createData(5, "FL 305", "02-04 -22", "Dallas", "2:00PM"),
+  createData(2, "FL 310", "03-04 -22", "Tarrant", "4:00PM"),
+  createData(3, "FL 315", "04-04 -22", "Dallas", "5:00PM"),
+  createData(4, "FL 395", "06-04 -22", "Tarrant", "2:00PM"),
+  createData(5, "FL 305", "11-05 -22", "Dallas", "2:00PM"),
 ];
 
 export default function CustomizedTables() {

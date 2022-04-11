@@ -3,7 +3,15 @@
  Lokesh Vadla Achari(1001951537)
  Vamseedhar Reddy Thandra(1001968085)  */
 import React from "react";
-const InputField = ({ onChange, isError, name, type, id, placeholder }) => {
+const InputField = ({
+  onChange,
+  isError,
+  name,
+  type,
+  id,
+  placeholder,
+  value,
+}) => {
   return (
     <input
       name={name}
@@ -14,6 +22,7 @@ const InputField = ({ onChange, isError, name, type, id, placeholder }) => {
       type={!type ? "text" : type}
       placeholder={placeholder}
       onChange={onChange}
+      value={value}
     />
   );
 };

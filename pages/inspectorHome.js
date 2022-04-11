@@ -8,6 +8,9 @@ import Router from "next/router";
 import ManageClinics from "../components/inspectorsFeatures/manageClinics";
 import ManageBusinesses from "../components/inspectorsFeatures/manageBusinesses";
 import ManageSchools from "../components/inspectorsFeatures/manageSchools";
+import ManageResidents from "../components/inspectorsFeatures/manageResidents";
+import ManageMoveouts from "../components/inspectorsFeatures/manageMoveouts";
+import ChatWithResidents from '../components/inspectorsFeatures/chatWithResidents'
 
 const InspectorHome = () => {
   const userType = useSelector((state) => state.auth.userType);
@@ -20,7 +23,11 @@ const InspectorHome = () => {
   const steps = {
     MS: ManageSchools,
     MC: ManageClinics,
-    MM: ManageBusinesses,
+    MB: ManageBusinesses,
+    MR: ManageResidents,
+    MM: ManageResidents,
+    CR: ChatWithResidents
+
   };
   const [step, setStep] = useState("MS");
   const Step = steps[step];
@@ -53,7 +60,7 @@ const InspectorHome = () => {
           <li
             className="linkButtons"
             onClick={() => {
-              setStep("MM");
+              setStep("MB");
             }}
           >
             Manage Businesses
@@ -61,7 +68,7 @@ const InspectorHome = () => {
           <li
             className="linkButtons"
             onClick={() => {
-              setStep("MM");
+              setStep("MR");
             }}
           >
             Manage Residents
@@ -73,6 +80,14 @@ const InspectorHome = () => {
             }}
           >
             Manage Moveouts
+          </li>
+          <li
+            className="linkButtons"
+            onClick={() => {
+              setStep("CR");
+            }}
+          >
+            Chat with Residents
           </li>
         </ul>
       </div>

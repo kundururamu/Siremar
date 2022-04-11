@@ -16,7 +16,7 @@ export default function Home() {
         <button
           className="bg-textColor  text-backgroundDark font-bold py-2 px-4 rounded mb-3 hover:text-gray-500"
           onClick={() => {
-            Router.push("/adminDashboard");
+            Router.push("/auth/login");
           }}
         >
           Get Started
