@@ -63,7 +63,7 @@ const Login = () => {
       setError(!isError);
       return;
     }
-     axios.post("http://siremarbackend.lxv1537.uta.cloud/login.php", {
+     axios.post("https://siremarbackend.lxv1537.uta.cloud/login.php", {
         username: email,
         password: password,
         role_type: roleSelected.toLowerCase(),
@@ -138,14 +138,7 @@ const Login = () => {
                 Submit
               </button>
             </div>
-            {/* <div className="flex items-center justify-between">
-              <a
-                className="inline-block align-baseline font-bold text-sm text-backgroundDark mx-auto hover:underline"
-                href="#"
-              >
-                Forgot Password?
-              </a>
-            </div> */}
+          
             <div className="flex items-center justify-between">
               <Link href="/auth/register">
                 <a

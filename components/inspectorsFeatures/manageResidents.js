@@ -47,7 +47,7 @@ const ManageResidents = () => {
   function getApiCall() {
     axios
       .get(
-        "http://siremarbackend.lxv1537.uta.cloud/get_user_details.php?role_type=resident"
+        "https://siremarbackend.lxv1537.uta.cloud/get_user_details.php?role_type=resident"
       )
       .then((res) => {
         setResidents(res.data.data);
@@ -58,7 +58,7 @@ const ManageResidents = () => {
     event.preventDefault();
     axios
       .post(
-        "http://siremarbackend.lxv1537.uta.cloud/user_registration.php",
+        "https://siremarbackend.lxv1537.uta.cloud/user_registration.php",
         {
           address: user.Address,
           dob: user.DOB,

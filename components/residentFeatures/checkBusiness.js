@@ -52,7 +52,7 @@ const CheckBusiness = () => {
 
   function getApi() {
     axios
-      .get("http://siremarbackend.lxv1537.uta.cloud/get_businessdetails.php")
+      .get("https://siremarbackend.lxv1537.uta.cloud/get_businessdetails.php")
       .then((res) => {
         setBusiness(res.data.data);
       });
@@ -74,7 +74,7 @@ const CheckBusiness = () => {
   function onSubmitHandler(event) {
     event.preventDefault();
     axios
-      .post("http://siremarbackend.lxv1537.uta.cloud/create_business.php", {
+      .post("https://siremarbackend.lxv1537.uta.cloud/create_business.php", {
         business_name: businessDetails.Name,
         business_address: businessDetails.Address,
         is_deleted: 0,
@@ -90,7 +90,7 @@ const CheckBusiness = () => {
   function deleteBusiness(event) {
     // event.preventDefault();
     axios
-      .post("http://siremarbackend.lxv1537.uta.cloud/create_business.php", {
+      .post("https://siremarbackend.lxv1537.uta.cloud/create_business.php", {
         business_name: event.Name,
         business_address: event.Address,
         is_deleted: 1,

@@ -51,7 +51,7 @@ const CheckClinics = () => {
 
   function getApi() {
     axios
-      .get("http://siremarbackend.lxv1537.uta.cloud/get_clincDetails.php")
+      .get("https://siremarbackend.lxv1537.uta.cloud/get_clincDetails.php")
       .then((res) => {
         if (res.data.reponse === "success") console.log("response", res);
         setClinic(res.data.data);
