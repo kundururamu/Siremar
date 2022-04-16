@@ -14,6 +14,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import DialogBox from "../../components/shared/dialogbox";
 import DropDownComponenet from "../../components/shared/dropdownComponent";
 import { LinkedCameraRounded } from "@mui/icons-material";
+import { route } from "next/dist/server/router";
+import Login from "./login";
 
 const Register = () => {
   const userType = useSelector((state) => state.auth.userType);
@@ -142,18 +144,20 @@ const Register = () => {
       .then((res) => {
         if (res.data.response === "success") {
           setErrMessage("User regisgtered successfully");
-          setError(!isError);
-          setEmail("");
-          setPassword("");
-          setAddress("");
-          setDob("");
-          setFirstname("");
-          setLastname("");
-          setGender("");
-          setPhone("");
-          setRole("");
-          setCounty("");
-          setIsCitizen("");
+
+          // setError(!isError);
+          // setEmail("");
+          // setPassword("");
+          // setAddress("");
+          // setDob("");
+          // setFirstname("");
+          // setLastname("");
+          // setGender("");
+          // setPhone("");
+          // setRole("");
+          // setCounty("");
+          // setIsCitizen("");
+          Router.push("./login");
         } else if (res.data.response === "User already registered!!") {
           setErrMessage(res.data.response);
           setError(!isError);
