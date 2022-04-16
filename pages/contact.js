@@ -8,6 +8,7 @@ import InputField from "../components/shared/inputField";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
+  const [errMessage, setErrMessage] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +31,7 @@ const Contact = () => {
         setEmail("")
         setPhone("")
         setDesc("")
+    alert("query submitted successfully")
       }
     })
   }
