@@ -112,7 +112,7 @@ const Register = () => {
       return;
     }
     axios
-      .post("http://siremarbackend.lxv1537.uta.cloud/user_registration.php", {
+      .post("https://siremarbackend.lxv1537.uta.cloud/user_registration.php", {
         first_name: fname,
 
         last_name: lname,

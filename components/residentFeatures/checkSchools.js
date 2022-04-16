@@ -40,7 +40,7 @@ const checkSchools = () => {
   useEffect(() => {
     axios
       .get(
-        "http://siremarbackend.lxv1537.uta.cloud/get_schools.php"
+        "https://siremarbackend.lxv1537.uta.cloud/get_schools.php"
       )
       .then((res) => {
         console.log(res, 2345);

@@ -43,7 +43,7 @@ const Discounts = () => {
 
   useEffect(() => {
     axios
-      .get("http://siremarbackend.lxv1537.uta.cloud/get_discounts.php")
+      .get("https://siremarbackend.lxv1537.uta.cloud/get_discounts.php")
       .then((res) => {
         setDiscounts(res.data.data);
       });

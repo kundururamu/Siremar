@@ -83,7 +83,7 @@ const CheckClinics = () => {
     );
     axios
       .post(
-        "http://siremarbackend.lxv1537.uta.cloud/create_or_modify_clinc.php",
+        "https://siremarbackend.lxv1537.uta.cloud/create_or_modify_clinc.php",
         {
           clinic_name: clinicDetails.Name,
           clinic_address: clinicDetails.Address,
@@ -103,7 +103,7 @@ const CheckClinics = () => {
     console.log('delete');
     axios
       .post(
-        "http://siremarbackend.lxv1537.uta.cloud/create_or_modify_clinc.php",
+        "https://siremarbackend.lxv1537.uta.cloud/create_or_modify_clinc.php",
         {
           clinic_name: clinicDetails.Name,
           clinic_address: clinicDetails.Address,

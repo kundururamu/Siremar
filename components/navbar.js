@@ -40,7 +40,7 @@ function Navbar() {
             </Link>
           </li>
           <li className={`${isAuth ? "hidden" : ""}`}>
-            <Link href="http://rxk1957.uta.cloud/blog/">
+            <Link href="https://rxk1957.uta.cloud/blog/">
               <a className="navbtn">Blog</a>
             </Link>
           </li>

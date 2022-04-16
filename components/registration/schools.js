@@ -33,7 +33,7 @@ const SchoolRegistration = () => {
   useEffect(() => {
     axios
       .get(
-        "http://siremarbackend.lxv1537.uta.cloud/get_schools.php"
+        "https://siremarbackend.lxv1537.uta.cloud/get_schools.php"
       )
       .then((res) => {
         if (res.data.reponse === "success") {
@@ -75,7 +75,7 @@ const SchoolRegistration = () => {
       setError(!isError);
       return;
     } 
-    axios.post("http://siremarbackend.lxv1537.uta.cloud/register_to_school.php", {
+    axios.post("https://siremarbackend.lxv1537.uta.cloud/register_to_school.php", {
       user_id: userId,
       school_id: selectedSchool,
       course_name: course,

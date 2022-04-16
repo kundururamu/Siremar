@@ -22,7 +22,7 @@ const CheckResidents = () => {
   useEffect(() => {
     axios
       .get(
-        "http://siremarbackend.lxv1537.uta.cloud/get_user_details.php"
+        "https://siremarbackend.lxv1537.uta.cloud/get_user_details.php"
       )
       .then((res) => {
         setResidents(res.data.data);

@@ -15,7 +15,7 @@ const Contact = () => {
 
   function handleSubmit(event){
     event.preventDefault()
-    axios.post("http://siremarbackend.lxv1537.uta.cloud/contact_us.php", {
+    axios.post("https://siremarbackend.lxv1537.uta.cloud/contact_us.php", {
       
       first_name: firstName,
       last_name: lastName,

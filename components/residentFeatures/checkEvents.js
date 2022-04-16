@@ -43,7 +43,7 @@ const CheckEvents = () => {
   useEffect(() => {
     axios
       .get(
-        "http://siremarbackend.lxv1537.uta.cloud/get_events.php"
+        "https://siremarbackend.lxv1537.uta.cloud/get_events.php"
       )
       .then((res) => {
         setEvents(res.data.data);

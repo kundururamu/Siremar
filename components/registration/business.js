@@ -20,7 +20,7 @@ const BusinessRegistration = () => {
     event.preventDefault()
     axios
       .post(
-        "http://siremarbackend.lxv1537.uta.cloud/create_business.php",
+        "https://siremarbackend.lxv1537.uta.cloud/create_business.php",
         {
           business_name: bName,
           business_address: address,
